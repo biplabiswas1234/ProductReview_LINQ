@@ -43,20 +43,28 @@ namespace ProductReviewLinq
             int option = 0;
             do
             {
-                Console.WriteLine("1: For Add Product Review");
+                Console.WriteLine("\n1: For Add Product Review");
                 Console.WriteLine("2: For Display the Product Review");
                 Console.WriteLine("3: For Retrieve the Top three Review ");
+                Console.WriteLine("4: For Retrive who's rating is greater than three");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
-                        productReview.AddProductReviewManagement();
+                        productReview.AddProductList();
+                        Console.WriteLine("\nData added ");
                         break;
                     case 2:
-                        productReview.DisplayProductReviewList(productReviewList);
+                        productReview.DisplayProductReviewList();
                         break;
                     case 3:
-                        productReview.RetrieveTopThreeRecords(productReviewList);
+                        productReview.RetrieveTop3ByRating();
+                        break;
+                    case 4:
+                        productReview.RetrieveAllByRatingAndProductID();
+                        break;
+                        default:
+                        Console.WriteLine("Enter correct number");
                         break;
                 }
             }
