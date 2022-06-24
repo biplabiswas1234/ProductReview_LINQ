@@ -50,6 +50,7 @@ namespace ProductReviewLinq
                 Console.WriteLine("5: For Retrive count of Review Present");
                 Console.WriteLine("6: For Retrive ProductId And Review");
                 Console.WriteLine("7: For Skip Top Five Records");
+                Console.WriteLine("8: For Retrive UserId And Review");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -74,6 +75,9 @@ namespace ProductReviewLinq
                         break;
                     case 7:
                         productReview.RetrieveProductReviewSkippingTop5();
+                        break;
+                    case 8:
+                        productReview.RetrieveUserIdAndReview();
                         break;
                     default:
                         

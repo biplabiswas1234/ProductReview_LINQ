@@ -67,6 +67,7 @@ namespace ProductReviewLinq
             }
             return res.Count;
         }
+        //UC3
         public string RetrieveAllByRatingAndProductID()
         {
             AddProductList();
@@ -96,6 +97,7 @@ namespace ProductReviewLinq
             }
             return productsList;
         }
+        //UC5
         public string RetrieveProductIdAndReview()
         {
             string result = "";
@@ -113,15 +115,45 @@ namespace ProductReviewLinq
         {
             string productsList = "";
             AddProductList();
-           
+
             var recordedData = (from list in ProductReviewsList orderby list.Rating ascending select list).Skip(5);
             foreach (var list in recordedData)
             {
                 Console.WriteLine("ProductId:- " + list.ProductID + " " + "UserId:- " + list.UserID
                     + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike :- " + list.IsLike);
             }
-            Console.WriteLine("Now number of datas: "+recordedData.Count());
+            Console.WriteLine("Now number of datas: " + recordedData.Count());
             return productsList;
+        }
+        //UC7
+        public string RetrieveUserIdAndReview()
+        {
+            string result = "";
+            AddProductList();
+            var productList = ProductReviewsList.Select(product => new { UserId = product.UserID, Review = product.Review }).ToList();
+            foreach (var element in productList)
+            {
+                Console.WriteLine("UserId: " + element.UserId + "\tReview: " + element.Review);
+                result += element.UserId + " ";
+            }
+            return result;
+        }
+        // UC 8 :Creates the data table of product review.
+        public int CreateDataTable()
+        {
+            AddProductList();
+            productdt = new DataTable();
+            productdt.Columns.Add("ProductId", typeof(Int32));
+            productdt.Columns.Add("UserId", typeof(Int32));
+            productdt.Columns.Add("Rating", typeof(Int32));
+            productdt.Columns.Add("Review", typeof(string));
+            productdt.Columns.Add("IsLike", typeof(bool));
+
+            foreach (var data in ProductReviewsList)
+            {
+                productdt.Rows.Add(data.ProductID, data.UserID, data.Rating, data.Review, data.IsLike);
+            }
+            return productdt.Rows.Count;
         }
     }
 }
