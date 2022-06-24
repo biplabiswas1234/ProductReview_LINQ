@@ -108,5 +108,20 @@ namespace ProductReviewLinq
             }
             return result;
         }
+        //UC6 : Skip first 5 parameter from the list
+        public string RetrieveProductReviewSkippingTop5()
+        {
+            string productsList = "";
+            AddProductList();
+           
+            var recordedData = (from list in ProductReviewsList orderby list.Rating ascending select list).Skip(5);
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductId:- " + list.ProductID + " " + "UserId:- " + list.UserID
+                    + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike :- " + list.IsLike);
+            }
+            Console.WriteLine("Now number of datas: "+recordedData.Count());
+            return productsList;
+        }
     }
 }
