@@ -197,5 +197,18 @@ namespace ProductReviewLinq
             }
             return productsList;
         }
+        /// UC 12: Retrieves all product reviews by user identifier and order by rating.
+        public string RetrieveAllProductReviews_ByUserID10()
+        {
+            CreateDataTable();
+            string productsList = "";
+            var res = (from product in productdt.AsEnumerable() where product.Field<Int32>("UserId") == 10 orderby product.Field<int>("Rating") select product).ToList();
+            foreach (var products in res)
+            {
+                Console.WriteLine("{0} ; {1} ; {2} ; {3} ; {4} ", products["ProductId"], products["UserId"], products["Rating"], products["Review"], products["IsLike"]);
+                productsList += products["Rating"] + " ";
+            }
+            return productsList;
+        }
     }
 }

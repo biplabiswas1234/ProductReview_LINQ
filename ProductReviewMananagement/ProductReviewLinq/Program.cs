@@ -55,6 +55,7 @@ namespace ProductReviewLinq
                 Console.WriteLine("10: For Display The Data Table Product Review");
                 Console.WriteLine("11: For Average Rating of each Product ID");
                 Console.WriteLine("12: For Retrieve records from the DataTable who’s review massage contains Nice");
+                Console.WriteLine("13: For Retrieve records from the DataTable who’s user id :10");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -95,6 +96,9 @@ namespace ProductReviewLinq
                         break;
                     case 12:
                         productReview.RetrieveAllNiceReviews();
+                        break;
+                    case 13:
+                        productReview.RetrieveAllProductReviews_ByUserID10();
                         break;
                     default:
                         
