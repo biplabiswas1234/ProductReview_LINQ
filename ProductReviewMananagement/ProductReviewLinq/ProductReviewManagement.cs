@@ -182,5 +182,20 @@ namespace ProductReviewLinq
             }
             return result;
         }
+        //UC11 : Retrieve nice reviews
+        public string RetrieveAllNiceReviews()
+        {
+            CreateDataTable();
+            List<ProductReview> ProductReviewsList = new List<ProductReview>();
+
+            string productsList = "";
+            var res = from product in productdt.AsEnumerable() where product.Field<string>("Review") == "nice" select product;
+            foreach (var products in res)
+            {
+                Console.WriteLine("{0} ; {1} ; {2} ; {3} ; {4} ", products["ProductId"], products["UserId"], products["Rating"], products["Review"], products["IsLike"]);
+                productsList += products["UserId"] + " ";
+            }
+            return productsList;
+        }
     }
 }
