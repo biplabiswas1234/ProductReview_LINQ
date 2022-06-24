@@ -48,6 +48,7 @@ namespace ProductReviewLinq
                 Console.WriteLine("3: For Retrieve the Top three Review ");
                 Console.WriteLine("4: For Retrive who's rating is greater than three");
                 Console.WriteLine("5: For Retrive count of Review Present");
+                Console.WriteLine("6: For Retrive ProductId And Review");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -66,6 +67,9 @@ namespace ProductReviewLinq
                         break;
                     case 5:
                         productReview.RetrieveReviewCountForProductId();
+                        break;
+                    case 6:
+                        productReview.RetrieveProductIdAndReview();
                         break;
                     default:
                         Console.WriteLine("Enter correct number");
