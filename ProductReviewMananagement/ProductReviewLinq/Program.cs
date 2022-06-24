@@ -53,6 +53,7 @@ namespace ProductReviewLinq
                 Console.WriteLine("8: For Retrive UserId And Review");
                 Console.WriteLine("9: For Add Product Review In Data Table");
                 Console.WriteLine("10: For Display The Data Table Product Review");
+                Console.WriteLine("11: For Average Rating of each Product ID");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -87,6 +88,9 @@ namespace ProductReviewLinq
                         break;
                     case 10:
                         productReview.RetrievedetailsWithLikes();
+                        break;
+                    case 11:
+                        productReview.RetrieveAverageRating();
                         break;
                     default:
                         
