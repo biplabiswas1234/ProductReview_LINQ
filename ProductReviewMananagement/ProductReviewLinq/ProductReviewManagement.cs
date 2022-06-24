@@ -83,5 +83,18 @@ namespace ProductReviewLinq
             }
             return productsList;
         }
+        //UC4 : Review Present
+        public string RetrieveReviewCountForProductId()
+        {
+            string productsList = "";
+            AddProductList();
+            var productList = ProductReviewsList.GroupBy(x => x.ProductID).Select(a => new { ProductID = a.Key, count = a.Count() });
+            foreach (var element in productList)
+            {
+                Console.WriteLine("ProductID " + element.ProductID + " " + "Count " + " " + element.count);
+                productsList += element.count + " ";
+            }
+            return productsList;
+        }
     }
 }
