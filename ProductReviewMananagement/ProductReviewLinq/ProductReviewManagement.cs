@@ -55,10 +55,7 @@ namespace ProductReviewLinq
                 Console.WriteLine("Liked :" + product.IsLike);
             }
         }
-        //<summary>
-        //UC2 : Top 3 Records
-        //</summary>
-        
+       
 
     }
 }
