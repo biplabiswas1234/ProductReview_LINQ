@@ -43,23 +43,24 @@ namespace ProductReviewLinq
             int option = 0;
             do
             {
-                Console.WriteLine("\n");
                 Console.WriteLine("1: For Add Product Review");
                 Console.WriteLine("2: For Display the Product Review");
+                Console.WriteLine("3: For Retrieve the Top three Review ");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
-                        productReview.AddProductList();
+                        productReview.AddProductReviewManagement();
                         break;
                     case 2:
-                        productReview.DisplayProductReviewList();
+                        productReview.DisplayProductReviewList(productReviewList);
                         break;
-                    
+                    case 3:
+                        productReview.RetrieveTopThreeRecords(productReviewList);
+                        break;
                 }
             }
             while (option != 0);
         }
     }
 }
-
