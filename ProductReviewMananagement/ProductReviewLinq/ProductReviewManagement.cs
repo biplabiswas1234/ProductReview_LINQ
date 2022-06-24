@@ -155,5 +155,18 @@ namespace ProductReviewLinq
             }
             return productdt.Rows.Count;
         }
+        public string RetrievedetailsWithLikes()
+        {
+            List<ProductReview> ProductReviewsList = new List<ProductReview>();
+            CreateDataTable();
+            string productsList = "";
+            var res = from product in productdt.AsEnumerable() where product.Field<bool>("IsLike") == true select product;
+            foreach (var product in res)
+            {
+                Console.WriteLine("{0} | {1} | {2} | {3} | {4} ", product["ProductId"], product["UserId"], product["Rating"], product["Review"], product["IsLike"]);
+                productsList += product["UserId"] + " ";
+            }
+            return productsList;
+        }
     }
 }

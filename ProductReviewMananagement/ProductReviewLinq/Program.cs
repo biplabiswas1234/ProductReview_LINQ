@@ -52,6 +52,7 @@ namespace ProductReviewLinq
                 Console.WriteLine("7: For Skip Top Five Records");
                 Console.WriteLine("8: For Retrive UserId And Review");
                 Console.WriteLine("9: For Add Product Review In Data Table");
+                Console.WriteLine("10: For Display The Data Table Product Review");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
@@ -83,6 +84,9 @@ namespace ProductReviewLinq
                     case 9:
                         productReview.CreateDataTable();
                         Console.WriteLine("Data Table is created");
+                        break;
+                    case 10:
+                        productReview.RetrievedetailsWithLikes();
                         break;
                     default:
                         
